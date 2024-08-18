@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
 
-app.use(cors());
+app.use(express.static('dist'))
 
 let notes = [
     {
@@ -38,7 +37,7 @@ const unknownEndpoint = (request, response) => {
 };
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hellp World!</h1>');
+    res.send('<h1>Hello World!</h1>');
 });
 
 app.get('/api/notes', (req, res) => {
@@ -89,7 +88,7 @@ app.delete('/api/notes/:id', (req, res) => {
 
 app.use(unknownEndpoint);
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
 });
