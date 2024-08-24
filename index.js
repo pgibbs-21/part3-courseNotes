@@ -57,9 +57,9 @@ app.post('/api/notes', (request, response) => {
         id: generateId(),
     };
 
-    notes = notes.concat(newNote);
-
-    response.json(newNote);
+    Note.save().then((savedNote) => {
+        response.json(savedNote);
+    });
 });
 
 app.get('/api/notes/:id', async (req, res) => {
@@ -86,7 +86,7 @@ app.delete('/api/notes/:id', (req, res) => {
 
 app.use(unknownEndpoint);
 
-const PORT = process.env.PORT 
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
 });
