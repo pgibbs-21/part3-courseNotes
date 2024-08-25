@@ -29,6 +29,7 @@ app.get('/api/notes', async (request, response) => {
     try {
         const notes = await Note.find({});
         response.json(notes);
+        console.log(notes);
     } catch (error) {
         console.error('Error fetching notes:', error);
         response
@@ -51,13 +52,13 @@ app.post('/api/notes', (request, response) => {
         });
     }
 
-    const newNote = {
+    const newNote = new Note({
         content: body.content,
         important: body.important || false,
         id: generateId(),
-    };
+    });
 
-    Note.save().then((savedNote) => {
+    newNote.save().then((savedNote) => {
         response.json(savedNote);
     });
 });
