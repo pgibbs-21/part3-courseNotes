@@ -6,7 +6,7 @@
         "start": "node index.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon index.js",
-        "build:ui": "rimraf dist && cd C:/Users/patri/Boot Camp/full-stack-open/doOverPart2/part2-final-version && npm run build && powershell -Command \"Copy-Item -Recurse -Force \\\"C:/Users/patri/Boot Camp/full-stack-open/doOverPart2/part2-final-version/dist\\\" \\\"C:/Users/patri/Boot Camp/full-stack-open/part3/part3-courseNotes\\\"\"",
+        "build:ui": "rimraf dist && cd C:/Users/patri/Boot Camp/full-stack-open/part2/part2 && npm run build && powershell -Command \"Copy-Item -Recurse -Force \\\"C:/Users/patri/Boot Camp/full-stack-open/part2/part2/dist\\\" \\\"C:/Users/patri/Boot Camp/full-stack-open/part3/part3-courseNotes\\\"\"",
         "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
     },
     "author": "Patrick Gibbs",
